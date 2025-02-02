@@ -52,3 +52,8 @@ general.autoScroll: true
 browser.startup.page: duckduckgo.com
 ```
 
+## tmux
+
+`install.sh` script will install `tpm` if it's not already installed, but packages are installed by executing
+<kbd>Ctrl</kbd> + <kbd>Space</kbd> and <kbd>I</kbd>
+inside the `tmux` environment
