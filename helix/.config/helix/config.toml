@@ -25,3 +25,14 @@ mode.select = "v"
 render = true
 character = "┊"
 skip-levels = 1
+
+[keys.normal]
+space.n = ":new"
+p = "paste_clipboard_before"
+y = "yank_main_selection_to_clipboard"
+space."." = "file_picker_in_current_buffer_directory"
+
+[editor.lsp]
+display-messages = true
+[editor.file-picker]
+hidden = false
