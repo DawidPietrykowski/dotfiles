@@ -1,0 +1,27 @@
+theme = "tokyonight"
+[editor]
+true-color = true
+# clipboard-provider = "tmux"
+middle-click-paste = true
+line-number = "relative"
+bufferline = "multiple"
+cursorline = true
+color-modes = true
+auto-pairs = true
+auto-format = false
+
+[editor.soft-wrap]
+enable = true
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.statusline]
+mode.normal = "n"
+mode.insert = "i"
+mode.select = "v"
+[editor.indent-guides]
+render = true
+character = "┊"
+skip-levels = 1

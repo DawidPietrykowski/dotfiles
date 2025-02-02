@@ -1,0 +1,16 @@
+[general]
+import = [
+  # "~/.config/alacritty/catppuccin-mocha.toml"
+  "~/.config/alacritty/tokyonight_night.toml"
+]
+
+[env]
+TERM = "xterm-256color"
+
+[terminal.shell]
+program = "/usr/bin/fish"
+
+[keyboard]
+bindings = [
+  {action = "SpawnNewInstance", key = "Return", mods = "Control|Shift"} ,
+]
