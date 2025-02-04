@@ -1,0 +1,8 @@
+[language-server.roslyn]
+# cargo install --git https://github.com/SofusA/roslyn-language-server
+command = "roslyn-language-server"
+
+[[language]]
+name = "c-sharp"
+language-servers = ["roslyn"]
+file-types = ["cs", "csproj", "sln"]

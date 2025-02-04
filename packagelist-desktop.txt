@@ -1,0 +1,6 @@
+alacritty
+firefox
+rustdesk-bin
+signal-desktop
+telegram-desktop
+wl-clipboard

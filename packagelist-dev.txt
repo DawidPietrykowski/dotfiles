@@ -1,0 +1,11 @@
+bash-language-server
+cmake
+gcc
+jedi-language-server
+make
+python-lsp-server
+ruff
+rustup
+tree-sitter
+tree-sitter-cli
+uv
