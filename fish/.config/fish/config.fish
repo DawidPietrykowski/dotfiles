@@ -36,7 +36,9 @@ abbr -a stl --position anywhere systemctl
 
 abbr -a zl 'z $PWD'
 
-alias hx=helix
+abbr -a h helix
+
+abbr -a hm history merge
 
 alias get_idf=". $HOME/storage/esp-idf/export.fish"
 alias get_matter="source $HOME/storage/esp-matter/export.sh"
@@ -46,7 +48,7 @@ set -gx LC_CTYPE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 
 # Set global envs
-set -gx EDITOR /usr/bin/nvim
+set -gx EDITOR $HOME/.cargo/bin/hx
 set -gx CHROME_EXECUTABLE /usr/bin/google-chrome-stable
 set -gx ELECTRON_OZONE_PLATFORM_HINT wayland
 
@@ -74,7 +76,6 @@ function fish_should_add_to_history
     # If no conditions are met, add the command to history
     return 0
 end
-
 
 # tide config
 set -gx tide_context_always_display true
