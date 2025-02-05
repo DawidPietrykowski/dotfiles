@@ -29,18 +29,18 @@ skip-levels = 1
 [keys.normal]
 space.n = ":new"
 space.space = "buffer_picker"
-p = "paste_clipboard_after"
-y = "yank_main_selection_to_clipboard"
-R = "replace_selections_with_clipboard"
+# p = "paste_clipboard_after"
+# y = "yank_main_selection_to_clipboard"
+# R = "replace_selections_with_clipboard"
 space."." = "file_picker_in_current_buffer_directory"
 X = "extend_line_above"
-d = ["yank_main_selection_to_clipboard", "delete_selection_noyank"]
+# d = ["yank_main_selection_to_clipboard", "delete_selection_noyank"]
 
-[keys.select]
-p = "paste_clipboard_after"
-y = "yank_main_selection_to_clipboard"
-R = "replace_selections_with_clipboard"
-d = ["yank_main_selection_to_clipboard", "delete_selection_noyank"]
+# [keys.select]
+# p = "paste_clipboard_after"
+# y = "yank_main_selection_to_clipboard"
+# R = "replace_selections_with_clipboard"
+# d = ["yank_main_selection_to_clipboard", "delete_selection_noyank"]
 
 [editor.lsp]
 display-messages = true
