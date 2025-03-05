@@ -44,6 +44,8 @@ abbr -a uvv 'uv venv -q --allow-existing --seed; source .venv/bin/activate.fish'
 abbr -a uvd deactivate
 alias pip="uv pip"
 
+abbr -a lg lazygit
+
 alias get_idf=". $HOME/storage/esp-idf/export.fish"
 alias get_matter="source $HOME/storage/esp-matter/export.sh"
 
