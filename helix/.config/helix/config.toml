@@ -8,6 +8,7 @@ cursorline = true
 color-modes = true
 auto-pairs = true
 auto-format = false
+jump-label-alphabet = "hjklabcdefgimnopqrstuvwxyz"
 
 [editor.soft-wrap]
 enable = true
@@ -29,10 +30,19 @@ skip-levels = 1
 space.n = ":new"
 space.space = "buffer_picker"
 space."." = "file_picker_in_current_buffer_directory"
+space.q = '@miw"sy"s<space>/<ret>'
+# space.q = '@miw*<space>/<ret>'
 X = "extend_line_above"
 C-g = [":sh git blame %{buffer_name} -L %{cursor_line},%{cursor_line}"]
+C-p = [":sh echo %{buffer_name}:%{cursor_line} | wl-copy"]
+tab = "goto_word"
+
+[keys.select]
+tab = "goto_word"
 
 [editor.lsp]
 display-messages = true
+goto-reference-include-declaration = false
+
 [editor.file-picker]
 hidden = false

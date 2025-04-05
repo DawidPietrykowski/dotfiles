@@ -22,7 +22,7 @@ abbr -a la eza -aal --color=always --group-directories-first # everything
 abbr -a lt eza -aT --color=always --group-directories-first # tree listing
 abbr -a lm eza -l --color=always --group-directories-first --sort modified
 
-abbr -a igit git-igitt
+abbr g git
 
 abbr -a rs rsync -rav --info=progress2 --no-i-r
 

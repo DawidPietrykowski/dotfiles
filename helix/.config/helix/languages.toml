@@ -6,3 +6,12 @@ command = "roslyn-language-server"
 name = "c-sharp"
 language-servers = ["roslyn"]
 file-types = ["cs", "csproj", "sln"]
+auto-format = false
+
+[[language]]
+name = "xml"
+formatter = { command = "xmllint", args = ["--format", "-"] }
+
+[[language]]
+name = "python"
+formatter = { command = "ruff", args = ["format", "--line-length", "88", "-"] }
