@@ -1,17 +1,19 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    uv generate-shell-completion fish | source
+    uvx --generate-shell-completion fish | source
+
+    # argc-completions
+    set -gx ARGC_COMPLETIONS_ROOT "$HOME/.config/fish/argc-completions"
+    set -gx ARGC_COMPLETIONS_PATH "$HOME/.config/fish/argc-completions/completions"
+    fish_add_path -m "$ARGC_COMPLETIONS_ROOT/bin"
+    set argc_scripts (ls -1 "$HOME/.config/fish/argc-completions/completions" | sed -n 's/\.sh$//p')
+    #~/.config/fish/argc-completions/bin/argc --argc-completions fish $argc_scripts | source
+    argc --argc-completions fish $argc_scripts | source
 end
 
 # Disable greeting
 set -g fish_greeting
-
-# argc-completions
-set -gx ARGC_COMPLETIONS_ROOT "$HOME/.config/fish/argc-completions"
-set -gx ARGC_COMPLETIONS_PATH "$HOME/.config/fish/argc-completions/completions"
-fish_add_path -m "$ARGC_COMPLETIONS_ROOT/bin"
-set argc_scripts (ls -1 "$HOME/.config/fish/argc-completions/completions" | sed -n 's/\.sh$//p')
-#~/.config/fish/argc-completions/bin/argc --argc-completions fish $argc_scripts | source
-argc --argc-completions fish $argc_scripts | source
 
 # abbr
 abbr -a psp --position anywhere pacman -Sy
@@ -97,5 +99,3 @@ set fzf_fd_opts --hidden
 set -U fifc_keybinding \cx
 
 set -U fifc_fd_opts --hidden
-uv generate-shell-completion fish | source
-uvx --generate-shell-completion fish | source

@@ -14,3 +14,6 @@ program = "/usr/bin/fish"
 bindings = [
   {action = "SpawnNewInstance", key = "Return", mods = "Control|Shift"} ,
 ]
+
+[scrolling]
+  history = 100000
