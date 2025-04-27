@@ -1,15 +1,20 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    # argc-completions
+    # set -gx ARGC_COMPLETIONS_ROOT "$HOME/.config/fish/argc-completions"
+    # set -gx ARGC_COMPLETIONS_PATH "$HOME/.config/fish/argc-completions/completions"
+    # fish_add_path -m "$ARGC_COMPLETIONS_ROOT/bin"
+    # set argc_scripts (ls -1 "$HOME/.config/fish/argc-completions/completions" | sed -n 's/\.sh$//p')
+    #~/.config/fish/argc-completions/bin/argc --argc-completions fish $argc_scripts | source
+    # argc --argc-completions fish $argc_scripts | source
+
+    starship init fish | source
+
+    zoxide init fish | source
+
     uv generate-shell-completion fish | source
     uvx --generate-shell-completion fish | source
 
-    # argc-completions
-    set -gx ARGC_COMPLETIONS_ROOT "$HOME/.config/fish/argc-completions"
-    set -gx ARGC_COMPLETIONS_PATH "$HOME/.config/fish/argc-completions/completions"
-    fish_add_path -m "$ARGC_COMPLETIONS_ROOT/bin"
-    set argc_scripts (ls -1 "$HOME/.config/fish/argc-completions/completions" | sed -n 's/\.sh$//p')
-    #~/.config/fish/argc-completions/bin/argc --argc-completions fish $argc_scripts | source
-    argc --argc-completions fish $argc_scripts | source
+    fzf --fish | source
 end
 
 # Disable greeting
@@ -51,12 +56,14 @@ abbr -a lg lazygit
 alias get_idf=". $HOME/storage/esp-idf/export.fish"
 alias get_matter="source $HOME/storage/esp-matter/export.sh"
 
+bind ctrl-e backward-kill-bigword
+
 # Locale
 set -gx LC_CTYPE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 
 # Set global envs
-set -gx EDITOR $HOME/.cargo/bin/hx
+set -gx EDITOR /usr/bin/helix
 set -gx CHROME_EXECUTABLE /usr/bin/google-chrome-stable
 set -gx ELECTRON_OZONE_PLATFORM_HINT wayland
 
@@ -85,17 +92,14 @@ function fish_should_add_to_history
     return 0
 end
 
-# tide config
-set -gx tide_context_always_display true
-
 # fzf config
-fzf_configure_bindings --directory=\cf
+# fzf_configure_bindings --directory=\cf
 
-set fzf_preview_dir_cmd eza --all --color=always
-set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
-set fzf_fd_opts --hidden
+# set fzf_preview_dir_cmd eza --all --color=always
+# set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
+# set fzf_fd_opts --hidden
 
-# fifc
-set -U fifc_keybinding \cx
+# # fifc
+# set -U fifc_keybinding \cx
 
-set -U fifc_fd_opts --hidden
+# set -U fifc_fd_opts --hidden
