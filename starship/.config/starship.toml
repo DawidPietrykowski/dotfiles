@@ -80,6 +80,7 @@ $mise\
 $crystal\
 $custom\
 $sudo\
+$fill\
 $cmd_duration\
 $time\
 $line_break\
@@ -92,23 +93,39 @@ $netns\
 $shell\
 $character"""
 
+[fill]
+symbol = ' '
+
 [git_status]
 disabled = false
-format = '([\[$all_status$ahead_behind\]]($style) )'
-style = "blue bold"
+format = '([$staged](bright-green) [$modified](bright-red) [$untracked](white))'
+style = "bright-red"
 ahead = "⇡${count}"
 behind = "⇣${count}"
 diverged = "⇕${count}"
 conflicted = "=${count}"
 deleted = "✘${count}"
 renamed = "»${count}"
-modified = "!${count}"
-staged = "+${count}"
-untracked = "?${count}"
-stashed = '*${count}'
+untracked = "(\\[+${count}\\])"
+modified = "(\\[!${count}\\])"
+staged = "(\\[*${count}\\])"
+stashed = ''
 
 [time]
 disabled = false
-format = '🕙[\[ $time \]]($style) '
+format = '[\[ $time \]]($style) '
 time_format = '%T'
-style = "white"
+style = "bold white"
+
+[directory]
+truncate_to_repo = false
+style = "cyan"
+
+[dotnet]
+disabled = true
+
+[cmake]
+disabled = true
+
+[c]
+disabled = true
