@@ -98,17 +98,17 @@ symbol = ' '
 
 [git_status]
 disabled = false
-format = '([$staged](bright-green) [$modified](bright-red) [$untracked](white))'
+format = '([$staged](bright-green)[$modified](bright-red)[$untracked](white))'
 style = "bright-red"
-ahead = "⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕${count}"
-conflicted = "=${count}"
-deleted = "✘${count}"
-renamed = "»${count}"
-untracked = "(\\[+${count}\\])"
-modified = "(\\[!${count}\\])"
-staged = "(\\[*${count}\\])"
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕${count} "
+conflicted = "=${count} "
+deleted = "✘${count} "
+renamed = "»${count} "
+untracked = "(\\[+${count}\\]) "
+modified = "(\\[!${count}\\]) "
+staged = "(\\[*${count}\\]) "
 stashed = ''
 
 [time]
