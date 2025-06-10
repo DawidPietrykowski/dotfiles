@@ -1,10 +1,10 @@
-[language-server.roslyn]
-# cargo install --git https://github.com/SofusA/roslyn-language-server
-command = "roslyn-language-server"
+[language-server.csharp]
+# cargo install --git https://github.com/SofusA/csharp-language-server
+command = "csharp-language-server"
 
 [[language]]
 name = "c-sharp"
-language-servers = ["roslyn"]
+language-servers = ["csharp"]
 file-types = ["cs", "csproj", "sln"]
 auto-format = false
 
@@ -15,3 +15,10 @@ formatter = { command = "xmllint", args = ["--format", "-"] }
 [[language]]
 name = "python"
 formatter = { command = "ruff", args = ["format", "--line-length", "88", "-"] }
+language-servers = [ "pyright" ]
+
+[[language]]
+name = "Renode repl"
+scope = "source.repl"
+comment-tokens = ['//']
+file-types = ["repl"]

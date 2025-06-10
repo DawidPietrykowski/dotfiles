@@ -1,14 +1,16 @@
 theme = "tokyonight"
 [editor]
+# clipboard-provider = "tmux"
 true-color = true
 middle-click-paste = true
-line-number = "relative"
 bufferline = "multiple"
 cursorline = true
 color-modes = true
 auto-pairs = true
 auto-format = false
 jump-label-alphabet = "hjklabcdefgimnopqrstuvwxyz"
+# trim-trailing-whitespace = false
+# editor-config = false
 
 [editor.soft-wrap]
 enable = true
@@ -32,11 +34,14 @@ space.space = "buffer_picker"
 space."." = "file_picker_in_current_buffer_directory"
 space.q = '@miw"sy"s<space>/<ret>'
 X = "extend_line_above"
-# C-g = [":sh cd $(dirname %{buffer_name}) && git blame $(basename %{buffer_name}) -L %{cursor_line},%{cursor_line}"]
 C-g = [":sh fish ~/.config/helix/helix_blame.fish blame %{buffer_name} %{cursor_line}"]
+C-y = [":sh fish ~/.config/helix/helix_blame.fish copy-url %{buffer_name} %{cursor_line}"]
+C-t = [":sh fish ~/.config/helix/helix_blame.fish goto-issue %{buffer_name} %{cursor_line}"]
 C-p = [":sh echo %{buffer_name}:%{cursor_line} | wl-copy"]
 C-r = ":reset-diff-change"
 tab = "goto_word"
+S-j = "@<space>'<C-n><ret>" # Next item from last picker
+S-k = "@<space>'<C-p><ret>" # Prev item from last picker
 
 [keys.select]
 tab = "goto_word"
