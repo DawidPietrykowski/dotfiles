@@ -8,6 +8,11 @@ if status is-interactive
 
     fzf --fish | source
 
+    # Alias hx to helix if hx is missing but helix exists
+    if not command -q hx; and command -q helix
+        alias hx helix
+    end
+
     bind ctrl-e backward-kill-bigword
 end
 
