@@ -11,7 +11,9 @@ program = "/usr/bin/fish"
 
 [keyboard]
 bindings = [
-  {action = "SpawnNewInstance", key = "Return", mods = "Control|Shift"} ,
+  {action = "ToggleViMode", key = "Return", mods = "Control|Shift"},
+  # Unbind default vi mode
+  {action = "ReceiveChar", key = "Space", mods = "Control|Shift"}
 ]
 
 [scrolling]
