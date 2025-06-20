@@ -10,7 +10,7 @@ auto-pairs = true
 auto-format = false
 jump-label-alphabet = "hjklabcdefgimnopqrstuvwxyz"
 # trim-trailing-whitespace = false
-# editor-config = false
+editor-config = true
 
 [editor.soft-wrap]
 enable = true
