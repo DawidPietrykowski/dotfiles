@@ -16,6 +16,15 @@ bindings = [
   {action = "ReceiveChar", key = "Space", mods = "Control|Shift"}
 ]
 
+[[hints.enabled]]
+command = "wl-copy"
+hyperlinks = false
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "C", mods = "Control|Shift" }
+regex = "(~?/?[\\w\\-\\.]+)*(/[\\w\\-\\.]+)+\\.[a-zA-Z0-9]+"
+
 [scrolling]
 history = 100000
 
