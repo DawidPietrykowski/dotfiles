@@ -1,6 +1,7 @@
 theme = "tokyonight"
 [editor]
 # clipboard-provider = "tmux"
+clipboard-provider = "termcode"
 true-color = true
 middle-click-paste = true
 bufferline = "multiple"
