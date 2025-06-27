@@ -3,6 +3,10 @@ import = [
   "~/.config/alacritty/tokyonight_night.toml"
 ]
 
+[cursor.vi_mode_style]
+shape = "Block"
+blinking = "On"
+
 [env]
 TERM = "xterm-256color"
 
