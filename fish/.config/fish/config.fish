@@ -6,6 +6,8 @@ if status is-interactive
     uv generate-shell-completion fish | source
     uvx --generate-shell-completion fish | source
 
+    # Disable multi selection on TAB
+    set -x FZF_CTRL_T_OPTS "--bind=tab:down,shift-tab:up"
     fzf --fish | source
 
     # Alias hx to helix if hx is missing but helix exists
@@ -60,6 +62,10 @@ set -gx LC_ALL en_US.UTF-8
 set -gx EDITOR /usr/bin/helix
 set -gx CHROME_EXECUTABLE /usr/bin/google-chrome-stable
 set -gx ELECTRON_OZONE_PLATFORM_HINT wayland
+
+function k --description 'kill last process with name' -a name
+    ps -aux | rg -F "$name" | rg -v 'rg' | choose 1 | tail -n 1 | xargs kill -9
+end
 
 # Add paths
 fish_add_path ~/Scripts/

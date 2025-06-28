@@ -9,7 +9,7 @@ cursorline = true
 color-modes = true
 auto-pairs = true
 auto-format = false
-jump-label-alphabet = "hjklabcdefgimnopqrstuvwxyz"
+jump-label-alphabet = "jfkdlsahgurieowpq"
 # trim-trailing-whitespace = false
 editor-config = true
 

@@ -29,6 +29,24 @@ mouse.enabled = true
 binding = { key = "C", mods = "Control|Shift" }
 regex = "(~?/?[\\w\\-\\.]+)*(/[\\w\\-\\.]+)+\\.[a-zA-Z0-9]+"
 
+[[hints.enabled]]
+command = "wl-copy"
+hyperlinks = false
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "N", mods = "Control|Shift" }
+regex = "\\d+"
+
+[[hints.enabled]]
+command = "wl-copy"
+hyperlinks = false
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "M", mods = "Control|Shift" }
+regex = "0x[0-9a-fA-F]+"
+
 [scrolling]
 history = 100000
 
