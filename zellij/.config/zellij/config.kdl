@@ -1,7 +1,8 @@
 keybinds clear-defaults=true {
     locked {
         bind "Ctrl Space" { SwitchToMode "normal"; }
-        bind "Ctrl \\" { FocusPreviousPane; }
+        bind "Ctrl \\" { FocusLastPane; }
+        // bind "Ctrl \\" { FocusPreviousPane; }
         bind "Ctrl Shift p" { ToggleFloatingPanes; SwitchToMode "locked"; }
     }
     pane {
