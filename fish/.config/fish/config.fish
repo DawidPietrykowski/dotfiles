@@ -59,7 +59,13 @@ set -gx LC_CTYPE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 
 # Set global envs
-set -gx EDITOR /usr/bin/helix
+
+# Alias hx to helix if hx is missing but helix exists
+if command -q hx
+    set -gx EDITOR (which hx)
+else if command -q helix
+    set -gx EDITOR (which helix)
+end
 set -gx CHROME_EXECUTABLE /usr/bin/google-chrome-stable
 set -gx ELECTRON_OZONE_PLATFORM_HINT wayland
 
