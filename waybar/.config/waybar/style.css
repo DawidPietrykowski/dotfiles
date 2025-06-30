@@ -39,6 +39,8 @@
 #memory,
 #cpu,
 #network,
+#custom-disk_root,
+#custom-disk_ssd,
 #custom-lock{
   border-radius: 4px;
   margin: 6px 3px;
@@ -78,6 +80,12 @@
   background-color: #f38ba8;
 }
 #network{
+  background-color: #fab387;
+}
+#custom-disk_root{
+  background-color: #fab387;
+}
+#custom-disk_ssd{
   background-color: #fab387;
 }
 #custom-lock{

@@ -1,8 +1,8 @@
 
 {
   "layer": "top",
-  "position": "top",
-  "height": 45,
+  "position": "bottom",
+  "height": 10,
   "spacing": 0,
   "modules-left": [
     "hyprland/workspaces",
@@ -19,6 +19,8 @@
     "bluetooth",
     "pulseaudio",
     "backlight",
+    "custom/disk_root",
+    "custom/disk_ssd",
     "custom/temperature",
     "memory",
     "cpu"
@@ -32,34 +34,44 @@
     "*":[1,2,3,4,5,6,7]
     },
     "format-icons":{
-    "1": "󰣇",
-    "2": "",
-    "3": "",
-    "4": "󰇮",
-    "5": "",
-    "6": "",
-    "7": "",
+    // "1": "󰣇",
+    // "2": "",
+    // "3": "",
+    // "4": "󰇮",
+    // "5": "",
+    // "6": "",
+    // "7": "",
     "active": "󱓻"
     }
   },
+	"custom/disk_root": {
+		"format": "/: {} ",
+		"interval": 30,
+		"exec": "df -h --output=avail / | tail -1 | tr -d ' '"
+	},
+	"custom/disk_ssd": {
+		"format": "SSD: {} ",
+		"interval": 30,
+		"exec": "df -h --output=avail /media/ssd | tail -1 | tr -d ' '"
+	},
   "custom/lock": {
   "format": "  ",
   "on-click": "hyprlock",
   "tooltip": true,
   "tooltip-format": "锁屏"
   },
-  "custom/reboot": {
-    "format": "  ",
-    "on-click": "systemctl reboot",
-    "tooltip": true,
-    "tooltip-format": "重启"
-  },
-  "custom/power": {
-    "format": "  ",
-    "on-click": "systemctl poweroff",
-    "tooltip": true,
-    "tooltip-format": "关机"
-  },
+  // "custom/reboot": {
+  //   "format": "  ",
+  //   "on-click": "systemctl reboot",
+  //   "tooltip": true,
+  //   "tooltip-format": "重启"
+  // },
+  // "custom/power": {
+  //   "format": "  ",
+  //   "on-click": "systemctl poweroff",
+  //   "tooltip": true,
+  //   "tooltip-format": "关机"
+  // },
   "network": {
     "format-wifi": " 󰤨 {essid} ",
     "format-ethernet": " Wired ",
@@ -128,18 +140,18 @@
     "icon-size": 17,
     "spacing": 6
   },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon}{percent}% ",
-    "tooltip": true,
-    "tooltip-format": "当前屏幕亮度: {percent}%",
-    "format-icons": [
-      " 󰃞 ",  // 暗 - 深灰
-      " 󰃝 ",  // 中 - 灰
-      " 󰃟 ",  // 亮 - 柠檬黄
-      " 󰃠 "   // 最亮 - 金色
-    ]
-  },
+  // "backlight": {
+  //   "device": "intel_backlight",
+  //   "format": "{icon}{percent}% ",
+  //   "tooltip": true,
+  //   "tooltip-format": "当前屏幕亮度: {percent}%",
+  //   "format-icons": [
+  //     " 󰃞 ",  // 暗 - 深灰
+  //     " 󰃝 ",  // 中 - 灰
+  //     " 󰃟 ",  // 亮 - 柠檬黄
+  //     " 󰃠 "   // 最亮 - 金色
+  //   ]
+  // },
   "bluetooth": {
     "format": "  {status} ",
     "format-connected": "  {device_alias} ",
