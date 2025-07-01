@@ -136,6 +136,13 @@ keybinds clear-defaults=true {
             }
             SwitchToMode "locked"
         }
+        bind "s" {
+            LaunchOrFocusPlugin "zellij:share" {
+                floating true
+                move_to_focused_tab true
+            };
+            SwitchToMode "Normal"
+        }
     }
     shared {
         bind "Shift left" { GoToPreviousTab; }
@@ -440,3 +447,7 @@ show_startup_tips false
 // Default: true
 // 
 show_release_notes false
+
+web_server_port 9080
+web_server_ip "0.0.0.0"
+enforce_https_for_localhost false
