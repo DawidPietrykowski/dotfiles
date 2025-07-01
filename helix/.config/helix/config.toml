@@ -40,6 +40,7 @@ C-y = [":sh fish ~/.config/helix/helix_blame.fish copy-url %{buffer_name} %{curs
 C-t = [":sh fish ~/.config/helix/helix_blame.fish goto-issue %{buffer_name} %{cursor_line}"]
 C-p = [":sh echo %{buffer_name}:%{cursor_line} | wl-copy"]
 C-r = ":reset-diff-change"
+C-l = ":toggle whitespace.render all none"
 tab = "goto_word"
 S-j = "@<space>'<C-n><ret>" # Next item from last picker
 S-k = "@<space>'<C-p><ret>" # Prev item from last picker
