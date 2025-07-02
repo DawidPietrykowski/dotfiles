@@ -73,6 +73,10 @@ function k --description 'kill last process with name' -a name
     ps -aux | rg -F "$name" | rg -v 'rg' | choose 1 | tail -n 1 | xargs kill -9
 end
 
+function utgz --description 'decompress .tar.gz' -a file
+    pigz -dc "$file" | tar -xf -
+end
+
 # Add paths
 fish_add_path ~/Scripts/
 fish_add_path ~/.cargo/bin
