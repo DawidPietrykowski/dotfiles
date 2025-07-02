@@ -374,7 +374,7 @@ scroll_buffer_size 1000000
 // otherwise this will error if such a session exists.
 // Default: <RANDOM>
 // 
-// session_name "My singleton session"
+session_name "misc"
  
 // When `session_name` is provided, attaches to that session
 // if it is already running or creates it otherwise.
@@ -418,7 +418,7 @@ scrollback_lines_to_serialize 100000
  
 // How often in seconds sessions are serialized
 // 
-serialization_interval 1000
+serialization_interval 100
  
 // Enable or disable writing of session metadata to disk (if disabled, other sessions might not know
 // metadata info on this session)
