@@ -1,6 +1,51 @@
-alacritty
+alacritty-sixel-git
 firefox
 rustdesk-bin
 signal-desktop
 telegram-desktop
+
+# Desktop Environment
+hyprland-git
+
+# clipboard manager
+clipse-bin
 wl-clipboard
+
+# shaders
+hyprshade-git
+
+# wallpaper
+hyprpaper
+
+# screenshot
+hyprshot
+
+# lock screen
+swaylock
+
+# notifications
+swaync
+
+# idle events manager
+hypridle
+
+# polkit agent
+hyprpolkitagent
+
+# bar
+waybar
+
+# launcher
+fuzzel
+
+# media player cli
+playerctl
+
+# wifi tui
+impala
+
+# bluetooth tui
+bluetui
+
+# audio tui
+ncpamixer
