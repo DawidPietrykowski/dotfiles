@@ -39,6 +39,8 @@
 #memory,
 #cpu,
 #network,
+#custom-volume,
+#custom-bluetooth,
 #custom-disk_root,
 #custom-disk_ssd,
 #custom-lock{
@@ -64,8 +66,12 @@
 #battery{
   background-color: #cba6f7;
 }
-#pulseaudio{
-  background-color: #89dceb;
+#custom-volume{
+  background-color: #a6a3a1;
+}
+#custom-bluetooth{
+  color: #cccccc;
+  background-color: #2032be;
 }
 #backlight{
   background-color: #a6a3a1;

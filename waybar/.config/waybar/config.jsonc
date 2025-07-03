@@ -6,10 +6,9 @@
   "spacing": 0,
   "modules-left": [
     "hyprland/workspaces",
-    "tray"
-    // "custom/lock",
-    // "custom/reboot",
-    // "custom/power",
+    "tray",
+    "custom/volume",
+    "custom/bluetooth"
   ],
   "modules-center": ["hyprland/window"],
   "modules-right": [
@@ -33,16 +32,22 @@
     "persistent-workspaces": {
     "*":[1,2,3,4,5,6,7,8,9,10]
     },
-    "format-icons":{
-    // "1": "󰣇",
-    // "2": "",
-    // "3": "",
-    // "4": "󰇮",
-    // "5": "",
-    // "6": "",
-    // "7": "",
-    "active": "󱓻"
-    }
+  },
+  "custom/volume": {
+      "exec": "pamixer --get-volume",
+      "format": "\uf028 {}%",
+      "interval": 1,
+      "on-click": "alacritty --class ncpamixer -e ncpamixer",
+      "on-click-right": "alacritty --class ncpamixer -e pulsemixer",
+      "on-scroll-up": "pamixer -i 5",
+      "on-scroll-down": "pamixer -d 5"
+  },
+  "custom/bluetooth": {
+      "exec": "set -o pipefail; systemctl is-active --quiet bluetooth && (bluetoothctl show | grep -q 'Powered: yes' && ((bluetoothctl devices Connected | head -1 | grep Device | sed 's/Device [0-9A-F:]* //' | sed 's/^/\udb80\udcb1  /') || echo '\udb80\udcb1') || echo '\udb80\udcb1') || echo ''",
+      // "exec": "systemctl is-active --quiet bluetooth && (bluetoothctl show | grep -q 'Powered: yes' && (bluetoothctl devices Connected | head -1 | sed 's/Device [0-9A-F:]* //' | sed 's/^/ /' || echo '') || echo '') || echo ''",
+      "format": "{}",
+      "interval": 5,
+      "on-click": "alacritty --class bluetui -e bluetui"
   },
 	"custom/disk_root": {
 		"format": "/: {} ",
@@ -92,27 +97,27 @@
     "format-icons": ["󰂎", "󰁼", "󰁿", "󰂁", "󰁹"],
     "tooltip": true
   },
-  "pulseaudio": {
-    "format": "{icon}{volume}% ",
-    "format-muted": " 󰖁 0% ",
-    "format-icons": {
-      "headphone": "  ",
-      "hands-free": "  ",
-      "headset": "  ",
-      "phone": "  ",
-      "portable": "  ",
-      "car": "  ",
-      "default": [
-        "  ",
-        "  ",
-        "  "
-      ]
-    },
-    "on-click-right": "pavucontrol -t 3",
-    "on-click": "pactl -- set-sink-mute 0 toggle",
-    "tooltip": true,
-    "tooltip-format": "当前系统声音: {volume}%"
-  },
+  // "pulseaudio": {
+  //   "format": "{icon}{volume}% ",
+  //   "format-muted": " 󰖁 0% ",
+  //   "format-icons": {
+  //     "headphone": "  ",
+  //     "hands-free": "  ",
+  //     "headset": "  ",
+  //     "phone": "  ",
+  //     "portable": "  ",
+  //     "car": "  ",
+  //     "default": [
+  //       "  ",
+  //       "  ",
+  //       "  "
+  //     ]
+  //   },
+  //   "on-click-right": "pavucontrol -t 3",
+  //   "on-click": "pactl -- set-sink-mute 0 toggle",
+  //   "tooltip": true,
+  //   "tooltip-format": "当前系统声音: {volume}%"
+  // },
   "custom/temperature": {
     "exec": "sensors | awk '/^Package id 0:/ {print int($4)}'",
     "format": " {}°C ",
