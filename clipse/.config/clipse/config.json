@@ -6,7 +6,7 @@
     "themeFile": "custom_theme.json",
     "tempDir": "tmp_files",
     "keyBindings": {
-        "choose": "y",
+        "choose": "enter",
         "clearSelected": "S",
         "down": "tab",
         "end": "end",
