@@ -43,7 +43,7 @@
       "on-scroll-down": "pamixer -d 5"
   },
   "custom/bluetooth": {
-      "exec": "set -o pipefail; systemctl is-active --quiet bluetooth && (bluetoothctl show | grep -q 'Powered: yes' && ((bluetoothctl devices Connected | head -1 | grep Device | sed 's/Device [0-9A-F:]* //' | sed 's/^/\udb80\udcb1  /') || echo '\udb80\udcb1') || echo '\udb80\udcb1') || echo ''",
+      "exec": "set -o pipefail; systemctl is-active --quiet bluetooth && (bluetoothctl show | grep -q 'Powered: yes' && ((bluetoothctl devices Connected | head -1 | grep Device | sed 's/Device [0-9A-F:]* //' | sed 's/^/\udb80\udcb1  /') || echo '\udb80\udcb1') || echo '') || echo ''",
       // "exec": "systemctl is-active --quiet bluetooth && (bluetoothctl show | grep -q 'Powered: yes' && (bluetoothctl devices Connected | head -1 | sed 's/Device [0-9A-F:]* //' | sed 's/^/ /' || echo '') || echo '') || echo ''",
       "format": "{}",
       "interval": 5,
