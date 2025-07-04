@@ -1,6 +1,6 @@
 * {
   font-family: "CaskaydiaCove Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Free Solid";
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 0;
   min-height: 0;
   border: none;
@@ -14,9 +14,9 @@
 }
 
 #tray{
-  margin: 6px 3px;
   background-color: rgba(36, 36, 52, 1.0);
-  padding: 6px 12px; /* 保持内部间距 */
+  margin: 6px 3px;
+  padding: 6px 12px;
   border-radius: 6px;
   border-width: 0px;
 }
@@ -50,9 +50,9 @@
   background-color: #1e1e2e;
   color: #181825;
 }
-
 #clock {
-  background-color: #89b4fa;
+  color: #ffffff;
+  background-color: #222222;
 }
 #custom-power{
   background-color: #f38ba8;

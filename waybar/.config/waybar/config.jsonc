@@ -1,4 +1,3 @@
-
 {
   "layer": "top",
   "position": "bottom",
@@ -8,20 +7,16 @@
     "hyprland/workspaces",
     "tray",
     "custom/volume",
-    "custom/bluetooth"
+    "bluetooth",
+    "custom/power"
   ],
   "modules-center": ["hyprland/window"],
   "modules-right": [
     // "network",
-    // "battery",
-    // "bluetooth",
-    // "pulseaudio",
-    // "backlight",
     "custom/disk_root",
-    "custom/disk_ssd",
-    // "custom/temperature",
     "memory",
     "cpu",
+    "custom/temperature",
     "clock"
   ],
   "hyprland/workspaces": {
@@ -33,50 +28,31 @@
     "*":[1,2,3,4,5,6,7,8,9,10]
     },
   },
-  "custom/volume": {
-      "exec": "pamixer --get-volume",
-      "format": "\uf028 {}%",
-      "interval": 1,
-      "on-click": "alacritty --class ncpamixer -e ncpamixer",
-      "on-click-right": "alacritty --class ncpamixer -e pulsemixer",
-      "on-scroll-up": "pamixer -i 5",
-      "on-scroll-down": "pamixer -d 5"
+  "custom/temperature": {
+    "exec": "sensors | awk '/^Tctl:/ {print int($2)}'",
+    "format": "{}°C",
+    "interval": 1,
+    "tooltip": true,
+    "tooltip-format": "当前 CPU 温度: {}°C"
   },
-  "custom/bluetooth": {
-      "exec": "set -o pipefail; systemctl is-active --quiet bluetooth && (bluetoothctl show | grep -q 'Powered: yes' && ((bluetoothctl devices Connected | head -1 | grep Device | sed 's/Device [0-9A-F:]* //' | sed 's/^/\udb80\udcb1  /') || echo '\udb80\udcb1') || echo '') || echo ''",
-      // "exec": "systemctl is-active --quiet bluetooth && (bluetoothctl show | grep -q 'Powered: yes' && (bluetoothctl devices Connected | head -1 | sed 's/Device [0-9A-F:]* //' | sed 's/^/ /' || echo '') || echo '') || echo ''",
-      "format": "{}",
-      "interval": 5,
-      "on-click": "alacritty --class bluetui -e bluetui"
+  "custom/volume": {
+    "exec": "pamixer --get-volume",
+    "format": "\uf028 {}%",
+    "interval": 1,
+    "on-click": "alacritty --class ncpamixer -e ncpamixer",
+    "on-click-right": "alacritty --class ncpamixer -e pulsemixer",
+    "on-scroll-up": "pamixer -i 5",
+    "on-scroll-down": "pamixer -d 5"
   },
 	"custom/disk_root": {
 		"format": "/: {} ",
-		"interval": 30,
+		"interval": 30, 
 		"exec": "df -h --output=avail / | tail -1 | tr -d ' '"
 	},
-	"custom/disk_ssd": {
-		"format": "SSD: {} ",
-		"interval": 30,
-		"exec": "df -h --output=avail /media/ssd | tail -1 | tr -d ' '"
-	},
-  "custom/lock": {
-  "format": "  ",
-  "on-click": "hyprlock",
-  "tooltip": true,
-  "tooltip-format": "锁屏"
+  "custom/power": {
+    "format": "  ",
+    "on-click": "systemctl poweroff",
   },
-  // "custom/reboot": {
-  //   "format": "  ",
-  //   "on-click": "systemctl reboot",
-  //   "tooltip": true,
-  //   "tooltip-format": "重启"
-  // },
-  // "custom/power": {
-  //   "format": "  ",
-  //   "on-click": "systemctl poweroff",
-  //   "tooltip": true,
-  //   "tooltip-format": "关机"
-  // },
   "network": {
     "format-wifi": " 󰤨 {essid} ",
     "format-ethernet": " Wired ",
@@ -97,44 +73,12 @@
     "format-icons": ["󰂎", "󰁼", "󰁿", "󰂁", "󰁹"],
     "tooltip": true
   },
-  // "pulseaudio": {
-  //   "format": "{icon}{volume}% ",
-  //   "format-muted": " 󰖁 0% ",
-  //   "format-icons": {
-  //     "headphone": "  ",
-  //     "hands-free": "  ",
-  //     "headset": "  ",
-  //     "phone": "  ",
-  //     "portable": "  ",
-  //     "car": "  ",
-  //     "default": [
-  //       "  ",
-  //       "  ",
-  //       "  "
-  //     ]
-  //   },
-  //   "on-click-right": "pavucontrol -t 3",
-  //   "on-click": "pactl -- set-sink-mute 0 toggle",
-  //   "tooltip": true,
-  //   "tooltip-format": "当前系统声音: {volume}%"
-  // },
-  "custom/temperature": {
-    "exec": "sensors | awk '/^Package id 0:/ {print int($4)}'",
-    "format": " {}°C ",
-    "interval": 5,
-    "tooltip": true,
-    "tooltip-format": "当前 CPU 温度: {}°C"
-  },
   "memory": {
-    // "format": "  {used:0.1f}G/{total:0.1f}G ",
-    "format": "{used:0.1f}G/{total:0.1f}G ",
-    "tooltip": true,
-    "tooltip-format": "当前内存占比: {used:0.2f}G/{total:0.2f}G"
+    "format": "{used:0.1f}G/{total:0.1f}G",
   },
   "cpu": {
-    // "format": "  {usage}% ",
-    "format": "{usage}%",
-    "tooltip": true
+    "format": "{usage}% {max_frequency}GHz",
+    "interval": 1,
   },
   "clock": {
     "interval": 1,
@@ -145,25 +89,14 @@
     "icon-size": 17,
     "spacing": 6
   },
-  // "backlight": {
-  //   "device": "intel_backlight",
-  //   "format": "{icon}{percent}% ",
-  //   "tooltip": true,
-  //   "tooltip-format": "当前屏幕亮度: {percent}%",
-  //   "format-icons": [
-  //     " 󰃞 ",  // 暗 - 深灰
-  //     " 󰃝 ",  // 中 - 灰
-  //     " 󰃟 ",  // 亮 - 柠檬黄
-  //     " 󰃠 "   // 最亮 - 金色
-  //   ]
-  // },
   "bluetooth": {
-    "format": "  {status} ",
-    "format-connected": "  {device_alias} ",
-    "format-connected-battery": "  {device_alias}{device_battery_percentage}% ",
+    "format": "  {status}",
+    "format-connected": "  {device_alias}",
+    "format-connected-battery": "  {device_alias} {device_battery_percentage}%",
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "alacritty --class bluetui -e bluetui"
   }
 }
