@@ -51,6 +51,8 @@ alias pip="uv pip"
 
 abbr -a lg lazygit
 
+abbr -a ho handlr open
+
 alias get_idf=". $HOME/storage/esp-idf/export.fish"
 alias get_matter="source $HOME/storage/esp-matter/export.sh"
 
