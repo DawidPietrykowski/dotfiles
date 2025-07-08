@@ -44,6 +44,8 @@ C-l = ":toggle whitespace.render all none"
 tab = "goto_word"
 S-j = "@<space>'<C-n><ret>" # Next item from last picker
 S-k = "@<space>'<C-p><ret>" # Prev item from last picker
+S-l = ":buffer-next"
+S-h = ":buffer-previous"
 
 [keys.select]
 tab = "goto_word"
