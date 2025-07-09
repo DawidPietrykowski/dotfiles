@@ -9,6 +9,12 @@ file-types = ["cs", "csproj", "sln"]
 auto-format = false
 
 [[language]]
+name = "json5"
+scope = "source.json5"
+injection-regex = "json5"
+file-types = ["json5", "hjson"]
+
+[[language]]
 name = "xml"
 formatter = { command = "xmllint", args = ["--format", "-"] }
 
