@@ -35,6 +35,7 @@ space.space = "buffer_picker"
 space."." = "file_picker_in_current_buffer_directory"
 space.q = '@miw"sy"s<space>/<ret>'
 X = "extend_line_above"
+B = "move_prev_word_end"
 C-g = [":sh fish ~/.config/helix/helix_blame.fish blame %{buffer_name} %{cursor_line}"]
 C-y = [":sh fish ~/.config/helix/helix_blame.fish copy-url %{buffer_name} %{cursor_line}"]
 C-t = [":sh fish ~/.config/helix/helix_blame.fish goto-issue %{buffer_name} %{cursor_line}"]
