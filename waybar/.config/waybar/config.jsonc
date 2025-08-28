@@ -1,23 +1,25 @@
 {
-  "layer": "top",
   "position": "bottom",
-  "height": 10,
-  "spacing": 0,
+  "height": 30,
+  "spacing": 4,
   "modules-left": [
     "hyprland/workspaces",
-    "tray",
-    "custom/volume",
-    "bluetooth",
-    "custom/power"
   ],
-  "modules-center": ["hyprland/window"],
+  "modules-center": [
+    "hyprland/window"
+  ],
   "modules-right": [
-    // "network",
-    "custom/disk_root",
-    "memory",
+    "bluetooth",
+    "custom/volume",
+    "network",
+    "battery",
     "cpu",
     "custom/temperature",
-    "clock"
+    "memory",
+    "disk",
+    "clock",
+    "tray",
+    "custom/power"
   ],
   "hyprland/workspaces": {
     "on-scroll-down": "hyprctl dispatch workspace e-1",
@@ -28,12 +30,50 @@
     "*":[1,2,3,4,5,6,7,8,9,10]
     },
   },
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 50,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": " $1",
+      "helix (.*)": "ed [$1]"
+    }
+  },
+  "network": {
+    "format-wifi": "  {signalStrength}% {essid} ({ipaddr})",
+    "format-ethernet": "󰈀 {ipaddr}",
+    "format-disconnected": "",
+    "tooltip-format": "{ifname} via {gwaddr} {icon}",
+    "format-icons": {
+      "wifi": "",
+      "ethernet": "󰈀"
+    }
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}% ({time} {power:.1f}w)",
+    "format-time": "{H}:{m}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "interval": 3
+  },
+  "cpu": {
+    "format": " {usage}% {max_frequency}GHz",
+    "tooltip": false,
+    "interval": 1
+  },
   "custom/temperature": {
-    "exec": "sensors | awk '/^Tctl:/ {print int($2)}'",
-    "format": "{}°C",
+    "exec": "bash $HOME/.config/waybar/resources/cpu_temp.sh",
     "interval": 1,
-    "tooltip": true,
-    "tooltip-format": "当前 CPU 温度: {}°C"
+    "format": " {}°C",
+    "tooltip": false
   },
   "custom/volume": {
     "exec": "pamixer --get-volume",
@@ -44,42 +84,25 @@
     "on-scroll-up": "pamixer -i 5",
     "on-scroll-down": "pamixer -d 5"
   },
-	"custom/disk_root": {
-		"format": "/: {} ",
-		"interval": 30, 
-		"exec": "df -h --output=avail / | tail -1 | tr -d ' '"
-	},
-  "custom/power": {
-    "format": "  ",
-    "on-click": "systemctl poweroff",
-  },
-  "network": {
-    "format-wifi": " 󰤨 {essid} ",
-    "format-ethernet": " Wired ",
-    "tooltip-format": "<span color='#FF1493'> 󰅧 </span>{bandwidthUpBytes}  <span color='#00BFFF'> 󰅢 </span>{bandwidthDownBytes}",
-    "format-linked": " 󱘖 {ifname} (No IP) ",
-    "format-disconnected": "  Disconnected ",
-    "format-alt": " 󰤨 {signalStrength}% ",
-    "interval": 1
-  },
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": " {icon} {capacity}% ",
-    "format-charging": " 󱐋{capacity}%",
-	  "interval": 1,
-    "format-icons": ["󰂎", "󰁼", "󰁿", "󰂁", "󰁹"],
-    "tooltip": true
-  },
   "memory": {
-    "format": "{used:0.1f}G/{total:0.1f}G",
+    "format": "󰍛 {used:0.1f}G/{total:0.1f}G",
+    "tooltip": false,
   	"interval": 1,
   },
-  "cpu": {
-    "format": "{usage}% {max_frequency}GHz",
-    "interval": 1,
+  "disk": {
+    "path": "/",
+    "format": " {percentage_free}%",
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": " {volume}%",
+    "format-muted": "",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ],
+    "on-click": "pavucontrol"
   },
   "clock": {
     "interval": 1,
@@ -89,6 +112,18 @@
   "tray": {
     "icon-size": 17,
     "spacing": 6
+  },
+  "custom/power": {
+    "format": "⏻ ",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/resources/power_menu.xml",
+    "menu-actions": {
+      "shutdown": "shutdown",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate"
+    }
   },
   "bluetooth": {
     "format": "  {status}",
