@@ -32,3 +32,12 @@ name = "Renode repl"
 scope = "source.repl"
 comment-tokens = ['//']
 file-types = ["repl"]
+
+[[language]]
+name = "rust"
+
+[language-server.rust-analyzer]
+config = { procMacro = { ignored = { leptos_macro = [
+    "component",
+    "server"
+] } } }
