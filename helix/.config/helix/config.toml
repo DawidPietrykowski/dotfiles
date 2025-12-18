@@ -39,7 +39,7 @@ B = "move_prev_word_end"
 C-g = [":sh fish ~/.config/helix/helix_blame.fish blame %{buffer_name} %{cursor_line}"]
 C-y = [":sh fish ~/.config/helix/helix_blame.fish copy-url %{buffer_name} %{cursor_line}"]
 C-t = [":sh fish ~/.config/helix/helix_blame.fish goto-issue %{buffer_name} %{cursor_line}"]
-C-p = [":sh echo %{buffer_name}:%{cursor_line} | wl-copy"]
+C-p = [":sh echo %{buffer_name}:%{cursor_line} | tty-copy"]
 C-r = ":reset-diff-change"
 C-l = ":toggle whitespace.render all none"
 tab = "goto_word"
@@ -47,13 +47,17 @@ S-j = "@<space>'<C-n><ret>" # Next item from last picker
 S-k = "@<space>'<C-p><ret>" # Prev item from last picker
 S-l = ":buffer-next"
 S-h = ":buffer-previous"
+# Do not append '\b' to '*' register value
+"*" = "search_selection"
 
 [keys.select]
 tab = "goto_word"
+# Do not append '\b' to '*' register value
+"*" = "search_selection"
 
 [editor.lsp]
 display-messages = true
 goto-reference-include-declaration = false
 
-[editor.file-picker]
-hidden = false
+# [editor.file-picker]
+# hidden = false
