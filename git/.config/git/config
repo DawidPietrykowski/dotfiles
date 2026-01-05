@@ -1,0 +1,24 @@
+[push]
+	autoSetupRemote = true
+[diff]
+    external = difft
+    submodule = log
+[status]
+    submoduleSummary = -1
+
+[alias]
+    f = fetch
+    pu = push
+    pufc = push --force-with-lease
+    puff = push --force
+	rr = rebase
+    c = clone
+    cc = checkout
+	d = diff
+	s = status
+    st = stash
+    su = submodule status --recursive
+    suu = submodule update --recursive --init
+    st = status
+    lg = log --graph --decorate --oneline --all
+    contrast = log --left-right --graph --cherry-pick --oneline
