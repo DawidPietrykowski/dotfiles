@@ -20,3 +20,5 @@
 git:
   paging:
     externalDiffCommand: difft --color=always
+os:
+  editPreset: 'helix (hx)'
