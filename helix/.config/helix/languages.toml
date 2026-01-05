@@ -19,6 +19,10 @@ name="hjson"
 source={git="https://github.com/winston0410/tree-sitter-hjson", rev="02fa3b79b3ff9a296066da6277adfc3f26cbc9e0"}
 
 [[language]]
+name = "json"
+formatter = { command = "jq" }
+
+[[language]]
 name = "xml"
 formatter = { command = "xmllint", args = ["--format", "-"] }
 
