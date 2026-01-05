@@ -86,6 +86,7 @@ fish_add_path ~/Scripts/
 fish_add_path ~/.cargo/bin
 fish_add_path ~/Android/Sdk/cmdline-tools/latest/bin/
 fish_add_path ~/.local/bin/
+fish_add_path /usr/share/dotnet
 
 function fish_should_add_to_history
     # Ignore "set" commands if the variable being set contains "KEY" in the name
@@ -98,4 +99,8 @@ function fish_should_add_to_history
 
     # If no conditions are met, add the command to history
     return 0
+end
+
+function zgit
+    cd (git rev-parse --show-cdup 2>/dev/null)
 end
