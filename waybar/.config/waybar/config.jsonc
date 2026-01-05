@@ -105,6 +105,7 @@
     "on-click": "pavucontrol"
   },
   "clock": {
+    "on-click": "sh -c 'alacritty -o font.size=30 --class ncpamixer -e sh -c \"cal -m; read -n1\"'",
     "interval": 1,
     "timezone": "Europe/Warsaw",
     "format": "{:%H:%M:%S %Y-%m-%d %a}"
