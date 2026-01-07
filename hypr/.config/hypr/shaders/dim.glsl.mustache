@@ -4,9 +4,13 @@
  * Dims the entire screen to 10% brightness.
  */
 
+#version 300 es
 precision highp float;
-varying vec2 v_texcoord;
+
+in vec2 v_texcoord;
 uniform sampler2D tex;
+
+out vec4 fragColor;
 
 void main() {
     vec4 pixColor = texture2D(tex, v_texcoord);
@@ -14,7 +18,7 @@ void main() {
     // Dim to 10% by multiplying RGB channels by 0.1
     pixColor.rgb *= 0.1;
 
-    gl_FragColor = pixColor;
+    fragColor = pixColor;
 }
 
 // vim: ft=glsl
