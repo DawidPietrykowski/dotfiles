@@ -48,4 +48,4 @@ impala
 bluetui
 
 # audio tui
-ncpamixer
+wiremix

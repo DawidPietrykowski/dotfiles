@@ -79,7 +79,7 @@
     "exec": "pamixer --get-volume",
     "format": "\uf028 {}%",
     "interval": 1,
-    "on-click": "alacritty --class ncpamixer -e ncpamixer",
+    "on-click": "alacritty --class wiremix -e wiremix",
     "on-click-right": "alacritty --class ncpamixer -e pulsemixer",
     "on-scroll-up": "pamixer -i 5",
     "on-scroll-down": "pamixer -d 5"
