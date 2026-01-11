@@ -63,6 +63,7 @@ set -gx LC_CTYPE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 
 # Set global envs
+set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 
 # Alias hx to helix if hx is missing but helix exists
 if command -q hx
