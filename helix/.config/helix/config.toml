@@ -42,7 +42,7 @@ C-t = [":sh fish ~/.config/helix/helix_blame.fish goto-issue %{buffer_name} %{cu
 C-p = [":sh echo %{buffer_name}:%{cursor_line} | tty-copy"]
 C-r = ":reset-diff-change"
 C-l = ":toggle whitespace.render all none"
-tab = "goto_word"
+S-tab = "goto_word"
 S-j = "@<space>'<C-n><ret>" # Next item from last picker
 S-k = "@<space>'<C-p><ret>" # Prev item from last picker
 S-l = ":buffer-next"
@@ -58,6 +58,9 @@ tab = "goto_word"
 [editor.lsp]
 display-messages = true
 goto-reference-include-declaration = false
+
+[editor.inline-diagnostics]
+cursor-line = "disable"
 
 # [editor.file-picker]
 # hidden = false
