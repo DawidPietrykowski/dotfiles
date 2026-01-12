@@ -18,7 +18,9 @@
 #           - value: 'push --force'
 #     command: "git {{index .PromptResponses 1}} {{index .PromptResponses 0}}"
 git:
-  paging:
-    externalDiffCommand: difft --color=always
+  pagers:
+    - externalDiffCommand: difft --color=always
 os:
   editPreset: 'helix (hx)'
+gui:
+  commitDateSource: committer
