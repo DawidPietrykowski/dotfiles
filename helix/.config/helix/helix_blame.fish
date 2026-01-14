@@ -46,6 +46,10 @@ switch $command
     case blame
         git log --pretty=format:"%h by %ae on %ad%n%n%s" -n 1 --date=short $commit_sha
 
+    case blame-prev
+        set commit_sha_prev (git blame --root --ignore-rev $commit_sha -L$line,$line -- $file | cut -d' ' -f 1)
+        git show $commit_sha_prev
+
     case goto-issue
         set commit_msg (git log --pretty=format:"%s" -n 1 $commit_sha)
 
