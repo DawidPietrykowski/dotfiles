@@ -49,11 +49,13 @@ S-l = ":buffer-next"
 S-h = ":buffer-previous"
 # Do not append '\b' to '*' register value
 "*" = "search_selection"
+space."*" = "search_selection_detect_word_boundaries"
 
 [keys.select]
 tab = "goto_word"
 # Do not append '\b' to '*' register value
 "*" = "search_selection"
+space."*" = "search_selection_detect_word_boundaries"
 
 [editor.lsp]
 display-messages = true
