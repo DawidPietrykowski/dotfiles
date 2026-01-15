@@ -1,6 +1,6 @@
 theme = "tokyonight"
+
 [editor]
-# clipboard-provider = "tmux"
 clipboard-provider = "termcode"
 true-color = true
 middle-click-paste = true
@@ -10,8 +10,8 @@ color-modes = true
 auto-pairs = true
 auto-format = false
 jump-label-alphabet = "jfkdlsahgurieowpq"
-# trim-trailing-whitespace = false
 editor-config = true
+format-shell-output = false # Requires branch `disable-shell-output-formatting` from https://github.com/DawidPietrykowski/helix.git
 
 [editor.soft-wrap]
 enable = true
@@ -37,7 +37,7 @@ space.q = '@miw"sy"s<space>/<ret>'
 X = "extend_line_above"
 B = "move_prev_word_end"
 C-g = [":sh fish ~/.config/helix/helix_blame.fish blame %{buffer_name} %{cursor_line}"]
-C-G = [":sh fish ~/.config/helix/helix_blame.fish blame-prev %{buffer_name} %{cursor_line}"]
+S-g = [":sh fish ~/.config/helix/helix_blame.fish blame-prev %{buffer_name} %{cursor_line}"]
 C-y = [":sh fish ~/.config/helix/helix_blame.fish copy-url %{buffer_name} %{cursor_line}"]
 C-t = [":sh fish ~/.config/helix/helix_blame.fish goto-issue %{buffer_name} %{cursor_line}"]
 C-p = [":sh echo %{buffer_name}:%{cursor_line} | tty-copy"]

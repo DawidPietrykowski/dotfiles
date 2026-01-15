@@ -48,7 +48,9 @@ switch $command
 
     case blame-prev
         set commit_sha_prev (git blame --root --ignore-rev $commit_sha -L$line,$line -- $file | cut -d' ' -f 1)
-        git show $commit_sha_prev
+        echo ```diff
+        git show $commit_sha_prev --minimal --cc -- $file
+        echo ```
 
     case goto-issue
         set commit_msg (git log --pretty=format:"%s" -n 1 $commit_sha)
@@ -82,4 +84,7 @@ switch $command
             # Gitlab format
             open_copy_or_print "https://$domain/git/repositories/$reposiory/blob/$commit$relative_file#L$line"
         end
+
+    case '*'
+        echo "unknown command $command"
 end
