@@ -116,6 +116,10 @@ format = '[\[ $time \]]($style) '
 time_format = '%T'
 style = "bold white"
 
+[status]
+format = '[\[$common_meaning$signal_name: $int\]]($style) '
+disabled = false
+
 [directory]
 truncate_to_repo = false
 style = "cyan"
