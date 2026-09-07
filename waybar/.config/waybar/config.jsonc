@@ -11,6 +11,7 @@
   "modules-right": [
     "bluetooth",
     "custom/volume",
+    "custom/music",
     "network",
     "battery",
     "cpu",
@@ -83,6 +84,12 @@
     "on-click-right": "alacritty --class ncpamixer -e pulsemixer",
     "on-scroll-up": "pamixer -i 5",
     "on-scroll-down": "pamixer -d 5"
+  },
+  "custom/music": {
+    "exec": "playerctl metadata xesam:title",
+    "format": "\uf028 {}",
+    "interval": 0.1,
+    "on-click": "playerctl play-pause",
   },
   "memory": {
     "format": "󰍛 {used:0.1f}G/{total:0.1f}G",
