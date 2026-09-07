@@ -31,6 +31,12 @@ name = "python"
 formatter = { command = "ruff", args = ["format", "--line-length", "88", "-"] }
 language-servers = [ "pyright" ]
 
+[language-server.tinymist]
+command = "tinymist"
+config.preview.background.enabled = true
+config.preview.background.args = [
+  "--data-plane-host=127.0.0.1:0", "--invert-colors=never", "--open"]
+
 [[language]]
 name = "Renode repl"
 scope = "source.repl"
@@ -40,8 +46,12 @@ file-types = ["repl"]
 [[language]]
 name = "rust"
 
-[language-server.rust-analyzer]
-config = { procMacro = { ignored = { leptos_macro = [
-    "component",
-    "server"
-] } } }
+[language-server.rust-analyzer.config]
+procMacro = { enable = true }
+cargo = { loadOutDirsFromCheck = true }
+# [language-server.rust-analyzer]
+# config = { procMacro = { ignored = { leptos_macro = [
+#     "component",
+#     "server"
+# ] } } }
+
