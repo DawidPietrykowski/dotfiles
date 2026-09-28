@@ -11,7 +11,7 @@ auto-pairs = true
 auto-format = false
 jump-label-alphabet = "jfkdlsahgurieowpq"
 editor-config = true
-format-shell-output = false # Requires branch `disable-shell-output-formatting` from https://github.com/DawidPietrykowski/helix.git
+# format-shell-output = false # Requires branch `disable-shell-output-formatting` from https://github.com/DawidPietrykowski/helix.git
 
 [editor.soft-wrap]
 enable = true
@@ -35,7 +35,7 @@ space.space = "buffer_picker"
 space."." = "file_picker_in_current_buffer_directory"
 space.q = '@miw"sy"s<space>/<ret>'
 X = "extend_line_above"
-B = "move_prev_word_end"
+B = "move_prev_long_word_start"
 C-g = [":sh fish ~/.config/helix/helix_blame.fish blame %{buffer_name} %{cursor_line}"]
 space.C-g = [":sh fish ~/.config/helix/helix_blame.fish blame-prev %{buffer_name} %{cursor_line}"]
 C-y = [":sh fish ~/.config/helix/helix_blame.fish copy-url %{buffer_name} %{cursor_line}"]
@@ -48,6 +48,7 @@ S-j = "@<space>'<C-n><ret>" # Next item from last picker
 S-k = "@<space>'<C-p><ret>" # Prev item from last picker
 S-l = ":buffer-next"
 S-h = ":buffer-previous"
+E = "file_explorer_in_current_buffer_directory"
 # Do not append '\b' to '*' register value
 "*" = "search_selection"
 space."*" = "search_selection_detect_word_boundaries"
